@@ -103,7 +103,10 @@ body {
   canvas {
     position: absolute;
 
-    top: 0;
+    top: 100px;
+    @media only screen and (max-width: 768px) {
+      top: 0;
+    }
     left: 0;
     // top: 10vh;
     // left: calc(100vh - (100vw / 100 * 98) / 2);

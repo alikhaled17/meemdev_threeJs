@@ -11,7 +11,6 @@ const Pyramid = () => {
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ3CcfswtVNKiy8KGGsFWtGTKHvNmmAnL3H6XABcpk3WwtKMwU58JcNRucgUxu17pg5Y"
-      // "https://bruno-simon.com/prismic/matcaps/8.png"
     );
 
     const geometry = new THREE.ConeGeometry(
@@ -43,7 +42,7 @@ const Pyramid = () => {
     });
 
     const camera = new THREE.PerspectiveCamera(
-      window.innerWidth < 700 ? 130 : 85,
+      window.innerWidth < 700 ? 150 : 85,
       window.innerWidth / window.innerHeight
     );
     camera.position.z = 3;
@@ -71,27 +70,15 @@ const Pyramid = () => {
       renderer.render(scene, camera);
     }, 3000);
 
-    const cursor = { x: 0, y: 0 };
-    // window.addEventListener("mousemove", (_event) => {
-    //   cursor.x = _event.clientX / window.innerWidth - 0.5;
-    //   cursor.y = _event.clientY / window.innerHeight - 0.5;
-    // });
-
     const tick = (c: any, n: number) => {
       window.requestAnimationFrame(() => tick(c, n));
-
       c.rotation.y += n;
-      // camera.rotation.y += 0.02;
-      // camera.rotation.z += 0.02;
-
-      //   cone.position.x += (cursor.x - camera.position.x) / 50;
-      //   cone.position.y = cursor.y;
       renderer.render(scene, camera);
     };
-    tick(cone, 0.001);
-    tick(cone2, 0.002);
-    tick(cone3, 0.003);
-  }, [1]);
+    tick(cone, 0.004);
+    tick(cone2, 0.005);
+    tick(cone3, 0.006);
+  });
 
   return (
     <div className="canvas_header">
